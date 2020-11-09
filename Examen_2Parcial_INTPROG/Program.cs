@@ -29,6 +29,7 @@ namespace Examen_2Parcial_INTPROG
                 Console.WriteLine(" Ingrese al sistema que desea ingresar ");
                 Console.WriteLine("   1. Clientes");
                 Console.WriteLine("   2. Productos");
+                Console.WriteLine("   3. SALIR DE LA APLICACION");
                 Console.Write("     >  ");
 
                 byte opcion = byte.Parse(Console.ReadLine());
@@ -37,6 +38,8 @@ namespace Examen_2Parcial_INTPROG
                 {
                     case 1:// Solucion para clientes
                         {
+                            byte controlClientes = 0;
+                            do { 
                             Console.Clear();
                             Console.WriteLine("    ------------- CLIENTES -------------");
                             Console.WriteLine(" Ingrese la opcion que desea realizar ");
@@ -75,12 +78,26 @@ namespace Examen_2Parcial_INTPROG
                                         Console.Write("   > la opción ingresada no es valida");
                                         break;
                                     }
+
                             }
+                                Console.WriteLine('\n' + "Ingrese 0 para volver al menu PRINCIPAL o Ingrese 1 para mostrar nuevamente el menu CLIENTES");
+                                controlClientes = byte.Parse(Console.ReadLine());
+                                if (controlClientes == 0)
+                                {
+                                    control = 1;
+                                }
+                                Console.Clear();
+
+                            } while (controlClientes != 0);
 
                             break;
                         }
                     case 2: //Solucion para productos
                         {
+                            byte controlProductos = 0;
+                            do
+                            {
+                            Console.Clear();
                             Console.WriteLine("    ------------- PRODUCTOS -------------");
                             Console.WriteLine(" Ingrese la opcion que desea realizar ");
                             Console.WriteLine("   1. Agregar Producto");
@@ -110,7 +127,22 @@ namespace Examen_2Parcial_INTPROG
                                         break;
                                     }
                             }
-                                    break;
+                                Console.WriteLine('\n' + "Ingrese 0 para volver al menu PRINCIPAL o Ingrese 1 para mostrar nuevamente el menu CLIENTES");
+                                controlProductos = byte.Parse(Console.ReadLine());
+                                if (controlProductos == 0)
+                                {
+                                    control = 1;
+                                }
+                                Console.Clear();
+
+                            } while (controlProductos != 0);
+
+                            break;
+                        }
+                    case 3:
+                        {
+                            control = 0;
+                            break;
                         }
                     default:
                         {
@@ -119,9 +151,24 @@ namespace Examen_2Parcial_INTPROG
                         }
                 }
 
-                Console.WriteLine('\n' + "Ingrese 0 para salir de la aplicación o Ingrese 1 para mostrar nuevamente el menu");
-                control = byte.Parse(Console.ReadLine());
-                Console.Clear();
+                if (control == 1)
+                {
+                    
+                }
+                else
+                {
+                    if (control == 0) 
+                    {
+
+                    }
+                    else
+                    {
+                        Console.WriteLine('\n' + "Ingrese 0 para salir de la aplicación o Ingrese 1 para mostrar nuevamente el menu");
+                        control = byte.Parse(Console.ReadLine());
+                        Console.Clear();
+                    }
+                    
+                }
 
             } while (control != 0);
         }
