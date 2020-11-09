@@ -192,15 +192,44 @@ namespace Examen_2Parcial_INTPROG
                                             Console.WriteLine('\n' + "          Los valores ingresados se han almacenado corretamente");
 
                                             break;
+                                    }
+                                case 2: //Cambiar Nombre y Existencias de producto
+                                    {
+                                        break;
+                                    }
+                                case 3: //Consultar existencias menor a 3
+                                        {
+                                            Console.Clear();
+                                            Console.WriteLine("----------- CONSULTA DE EXISTENCIAS < 3 -----------" + '\n');
+
+                                            StreamReader lectura = File.OpenText(rutaProductos);
+                                            String consulta = lectura.ReadToEnd();
+                                            lectura.Close();
+
+                                            string[] productos = consulta.Split('\n');
+
+                                            for (int x = 0; x < productos.Length - 1; x++)
+                                            {
+
+                                                string[] prod = productos[x].Split(',');
+
+                                                if (prod[3].Trim().Equals("1") || prod[3].Trim().Equals("2"))
+                                                {
+
+                                                    Console.WriteLine("   > NOMBRE: " + prod[0]);
+                                                    Console.WriteLine("   > DESCRIPCION: " + prod[1]);
+                                                    Console.WriteLine("   > PRECIO: " + prod[2]);
+                                                    Console.WriteLine("   > EXISTENCIA: " + prod[3]);
+                                                    Console.WriteLine("   > CODIGO DE BARRAS: " + prod[4]);
+
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine(" NO EXISTEN PRODUCTOS EN EXISTENCIA < 3");
+                                                }
+                                            }
+
                                             break;
-                                    }
-                                case 2:
-                                    {
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        break;
                                     }
                                 default:
                                     {
