@@ -29,7 +29,7 @@ namespace Examen_2Parcial_INTPROG
             {
                 Console.WriteLine("    ------------- PROGRAMA -------------");
                 Console.WriteLine(" Ingrese al sistema que desea ingresar ");
-                Console.WriteLine("   1. Clientes");
+                Console.WriteLine("   1. Clientes"); 
                 Console.WriteLine("   2. Productos");
                 Console.WriteLine("   3. SALIR DE LA APLICACION");
                 Console.Write("     >  ");
@@ -45,7 +45,7 @@ namespace Examen_2Parcial_INTPROG
                             Console.Clear();
                             Console.WriteLine("    ------------- CLIENTES -------------");
                             Console.WriteLine(" Ingrese la opcion que desea realizar ");
-                            Console.WriteLine("   1. Agregar Cliente");
+                            Console.WriteLine("   1. Agregar Cliente");  // listo
                             Console.WriteLine("   3. Cambiar Datos de Cliente");
                             Console.WriteLine("   2. Eliminar Cliente");
                             Console.WriteLine("   4. Consultar Nombres");
@@ -92,7 +92,7 @@ namespace Examen_2Parcial_INTPROG
                                             cliente = cliente + "," + Console.ReadLine();
 
 
-                                            StreamWriter escritura = File.AppendText(rutaClientes);
+                                            StreamWriter escritura = File.AppendText(rutaClientes); // es posible que utilice constructores más veces de las que debería xd 
                                             escritura.WriteLine(cliente);
                                             escritura.Close();
 
@@ -143,9 +143,9 @@ namespace Examen_2Parcial_INTPROG
                             Console.Clear();
                             Console.WriteLine("    ------------- PRODUCTOS -------------");
                             Console.WriteLine(" Ingrese la opcion que desea realizar ");
-                            Console.WriteLine("   1. Agregar Producto");
-                            Console.WriteLine("   3. Cambiar Nombre y Existencias de producto");
-                            Console.WriteLine("   3. Consultar Producto con Existencias menor a 3");
+                            Console.WriteLine("   1. Agregar Producto");  // listo
+                            Console.WriteLine("   3. Cambiar Nombre y Existencias de producto");  //
+                            Console.WriteLine("   3. Consultar Producto con Existencias menor a 3");  // listo
                             Console.Write("     >  ");
 
                             byte opcionProducto = byte.Parse(Console.ReadLine());
@@ -195,7 +195,18 @@ namespace Examen_2Parcial_INTPROG
                                     }
                                 case 2: //Cambiar Nombre y Existencias de producto
                                     {
-                                        break;
+                                            Console.Clear();
+                                            Console.WriteLine("----------- CAMBIAR NOMBRE Y EXISTENCAS -----------" + '\n');
+
+                                            StreamReader lectura = File.OpenText(rutaProductos); 
+                                            String cambio = lectura.ReadToEnd();
+                                            lectura.Close();
+
+                                            string[] productos = cambio.Split('\n');
+
+
+
+                                            break;
                                     }
                                 case 3: //Consultar existencias menor a 3
                                         {
@@ -261,17 +272,18 @@ namespace Examen_2Parcial_INTPROG
                         }
                 }
 
-                if (control == 1)
+                if (control == 1) // para cuando en algún retorno de control el valor ya es != de 0 y que cierre el do-while para finalizar el programa 
                 {
-                    
+                   // estos casos fueron creados para conseguir el movimiento entre el menú principal y las opciones
+                   // del cliente o producto sin recurrir a metodos o funciones. 
                 }
                 else
                 {
-                    if (control == 0) 
+                    if (control == 0) // si aun no tenemos un valor de control asignado verificiamos si es igual a cero 
                     {
-
+                        // si el valor es diferente de 0 cerramos el programa 
                     }
-                    else
+                    else // si no es diferente de cero le preguntamos si quiere volver a mostrar el menu principal 
                     {
                         Console.WriteLine('\n' + "Ingrese 0 para salir de la aplicación o Ingrese 1 para mostrar nuevamente el menu");
                         control = byte.Parse(Console.ReadLine());
