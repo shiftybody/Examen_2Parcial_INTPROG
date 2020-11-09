@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Threading;
 
 namespace Examen_2Parcial_INTPROG
 {
@@ -48,14 +50,54 @@ namespace Examen_2Parcial_INTPROG
                             Console.WriteLine("   2. Eliminar Cliente");
                             Console.WriteLine("   4. Consultar Nombres");
                             Console.Write("     >  ");
-
                             byte opcionCliente = byte.Parse(Console.ReadLine());
 
                             switch (opcionCliente)
                             {
-                                case 1:
+
+                                case 1: //Agregar Cliente
                                     {
-                                        break;
+                                            String cliente;
+                                            Console.Clear();
+                                            Console.WriteLine("    ----------- AGREGAR CLIENTE -----------" + '\n');
+                                            Console.WriteLine("    Porfavor ingrese: ");
+                                            Console.Write("   > NOMBRE COMPLETO: ");
+                                            cliente = Console.ReadLine();
+                                            Console.Write("   > DIRECCIÓN: ");
+                                            cliente = cliente + "," + Console.ReadLine();
+                                            Console.Write("   > TELÉFONO: ");
+                                            cliente = cliente + "," + Console.ReadLine();
+                                            Console.Write("   > CODIGO POSTAL: ");
+                                            cliente = cliente + "," + Console.ReadLine();
+
+                                            string temporal = null;
+
+                                            do
+                                            {
+                                                Console.Write("   > ESTATUS (ACTIVO/INACTIVO): ");
+                                                temporal = Console.ReadLine().ToUpper();
+                                                if (temporal.Equals("ACTIVO") || temporal.Equals("INACTIVO"))
+                                                {
+                                                    cliente = cliente + "," + temporal;
+                                                    break;
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine("      > ESTATUS NO VALIDO VUELVA A INGRESAR ");
+                                                }
+                                            } while (temporal != ("ACTIVO") || temporal != ("INACTIVO"));
+
+
+                                                Console.Write("   > CORREO ELECTRONICO: ");
+                                            cliente = cliente + "," + Console.ReadLine();
+
+
+                                            StreamWriter escritura = File.AppendText(rutaClientes);
+                                            escritura.WriteLine(cliente);
+                                            escritura.Close();
+
+                                            Console.WriteLine('\n' + "          Los valores ingresados se han almacenado corretamente");
+                                            break;
                                     }
                                 case 2:
                                     {
@@ -80,7 +122,8 @@ namespace Examen_2Parcial_INTPROG
                                     }
 
                             }
-                                Console.WriteLine('\n' + "Ingrese 0 para volver al menu PRINCIPAL o Ingrese 1 para mostrar nuevamente el menu CLIENTES");
+                                Console.WriteLine('\n' + "      Ingrese 0 para volver al menu PRINCIPAL o ");
+                                Console.WriteLine("      Ingrese 1 para mostrar nuevamente el menu CLIENTES");
                                 controlClientes = byte.Parse(Console.ReadLine());
                                 if (controlClientes == 0)
                                 {
@@ -111,6 +154,7 @@ namespace Examen_2Parcial_INTPROG
                             {
                                 case 1:
                                     {
+
                                         break;
                                     }
                                 case 2:
