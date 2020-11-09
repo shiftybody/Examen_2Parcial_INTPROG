@@ -23,7 +23,7 @@ namespace Examen_2Parcial_INTPROG
             byte control = 0;
 
             string rutaClientes = @"C:\Users\david\Documents\IntProg\Examen_2Parcial_INTPROG\DB\clientes.txt";
-            string rutaProductos = @"C:\Users\david\Documents\IntProg\Examen_2Parcial_INTPROG\DB\clientes.txt";
+            string rutaProductos = @"C:\Users\david\Documents\IntProg\Examen_2Parcial_INTPROG\DB\productos.txt";
 
             do
             {
@@ -72,7 +72,7 @@ namespace Examen_2Parcial_INTPROG
 
                                             string temporal = null;
 
-                                            do
+                                            do  // validamos que solo se ingrese activo o inactivo 
                                             {
                                                 Console.Write("   > ESTATUS (ACTIVO/INACTIVO): ");
                                                 temporal = Console.ReadLine().ToUpper();
@@ -99,7 +99,7 @@ namespace Examen_2Parcial_INTPROG
                                             Console.WriteLine('\n' + "          Los valores ingresados se han almacenado corretamente");
                                             break;
                                     }
-                                case 2:
+                                case 2: 
                                     {
                                         break;
                                     }
@@ -152,10 +152,47 @@ namespace Examen_2Parcial_INTPROG
 
                             switch (opcionProducto)
                             {
-                                case 1:
+                                case 1: //Agregar producto 
                                     {
+                                            String producto;
+                                            Console.Clear();
+                                            Console.WriteLine("    ----------- AGREGAR PRODUCTO -----------" + '\n');
+                                            Console.WriteLine("    Porfavor ingrese: ");
+                                            Console.Write("   > NOMBRE: ");
+                                            producto = Console.ReadLine();
+                                            Console.Write("   > DESCRIPCIÓN: ");
+                                            producto = producto + "," + Console.ReadLine();
+                                            Console.Write("   > PRECIO: ");
+                                            producto = producto + "," + Console.ReadLine();
+                                            Console.Write("   > CANTIDAD EN EXISTENCIA: ");
+                                            producto = producto + "," + Console.ReadLine();
 
-                                        break;
+                                            string temporal = null;
+
+                                            do
+                                            {
+                                                Console.Write("   > CÓDGIO DE BARRAS (1O DIGITOS): "); // validmos que el codigo de barras sea de 10 digitos
+                                                temporal = Console.ReadLine().ToUpper();
+                                                if (temporal.Length == 10 )
+                                                {
+                                                    producto = producto + "," + temporal;
+                                                    break;
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine("      > NUMERO DE CARACTERES INCORRECTO ( 10 DIGITOS )");
+                                                }
+                                            } while (temporal.Length != 10);
+
+
+                                            StreamWriter escritura = File.AppendText(rutaProductos);
+                                            escritura.WriteLine(producto);
+                                            escritura.Close();
+
+                                            Console.WriteLine('\n' + "          Los valores ingresados se han almacenado corretamente");
+
+                                            break;
+                                            break;
                                     }
                                 case 2:
                                     {
