@@ -5,3 +5,10 @@ C:\Users\david\Documents\IntProg\Examen_2Parcial_INTPROG\Examen_2Parcial_INTPROG
 C:\Users\david\Documents\IntProg\Examen_2Parcial_INTPROG\Examen_2Parcial_INTPROG\obj\Debug\Examen_2Parcial_INTPROG.csproj.CoreCompileInputs.cache
 C:\Users\david\Documents\IntProg\Examen_2Parcial_INTPROG\Examen_2Parcial_INTPROG\obj\Debug\Examen_2Parcial_INTPROG.exe
 C:\Users\david\Documents\IntProg\Examen_2Parcial_INTPROG\Examen_2Parcial_INTPROG\obj\Debug\Examen_2Parcial_INTPROG.pdb
+C:\Users\david\Documents\IntProg\Examen 2 Parcial\Examen_2Parcial_INTPROG\bin\Debug\Examen_2Parcial_INTPROG.exe.config
+C:\Users\david\Documents\IntProg\Examen 2 Parcial\Examen_2Parcial_INTPROG\bin\Debug\Examen_2Parcial_INTPROG.exe
+C:\Users\david\Documents\IntProg\Examen 2 Parcial\Examen_2Parcial_INTPROG\bin\Debug\Examen_2Parcial_INTPROG.pdb
+C:\Users\david\Documents\IntProg\Examen 2 Parcial\Examen_2Parcial_INTPROG\obj\Debug\Examen_2Parcial_INTPROG.csprojAssemblyReference.cache
+C:\Users\david\Documents\IntProg\Examen 2 Parcial\Examen_2Parcial_INTPROG\obj\Debug\Examen_2Parcial_INTPROG.csproj.CoreCompileInputs.cache
+C:\Users\david\Documents\IntProg\Examen 2 Parcial\Examen_2Parcial_INTPROG\obj\Debug\Examen_2Parcial_INTPROG.exe
+C:\Users\david\Documents\IntProg\Examen 2 Parcial\Examen_2Parcial_INTPROG\obj\Debug\Examen_2Parcial_INTPROG.pdb
